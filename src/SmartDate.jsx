@@ -4,9 +4,10 @@ import PropTypes from 'prop-types';
 
 export const SmartDate = ({value}) => {
     
-    const [curMonth, setCurMonth] = useState (0);
-    const [curYear, setCurYear] = useState (0);
+
     const [selDate, setSelDate] = useState (assignDate(value));
+    const [curMonth, setCurMonth] = useState (assignDate(value).getMonth() + 1);
+    const [curYear, setCurYear] = useState (assignDate(value).getFullYear());
     const [dayValues, setDayValues] = useState([]);
     const [monthValues, setMonthValues] = useState([]);
     const [monthOpen, setMonthOpen] = useState(false);
@@ -46,16 +47,11 @@ export const SmartDate = ({value}) => {
         let _mnthName = ['', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
         return _mnthName[m]
     };
-    //----------------------------------------------------------------------------
-    useEffect( () =>{
-        let _mm = selDate.getMonth() + 1; //January is 0!
-        let _yy = selDate.getFullYear();
 
-        setCurMonth(_mm);
-        setCurYear(_yy);
-        dayPropagation(_mm, _yy, selDate);
-        monthPropagation(_mm);
-    }, selDate);
+    useEffect( () =>{
+        dayPropagation(curMonth, curYear, selDate);
+        monthPropagation(curMonth);
+    });
     //----------------------------------------------------------------------------
     const dayPropagation= (month, year, seldate) => { 
         let _daysInMonth = new Date(year, month, 0).getDate();
