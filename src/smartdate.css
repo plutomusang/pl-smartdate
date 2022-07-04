@@ -1,0 +1,234 @@
+*,
+* ::before,
+* ::after {
+    box-sizing: border-box;
+    /* outline: 1px solid white; */
+}
+.activator {
+    position: absolute;
+    top: -10px;
+    display:none;
+}
+.activator-label {
+    display: grid;
+    grid-template-columns: 91px auto;
+}
+.arrowright{
+    padding-top: 4px;      
+}
+
+.activator:checked ~ .activator-label .darklayer {
+  transform:translateX(0%);
+}
+.activator:checked ~ .activator-label .dark2 {
+  opacity:0;
+}
+.activator:checked ~ .activator-label .lightlayer {
+  transform:translateX(-15%);
+}
+
+.activator:checked ~ .monthView {    
+  transform:translateX(108px);
+  transition:  .2s ease-in;
+  z-index: 1;
+}
+
+.activator-label {
+    cursor: pointer;
+
+}
+.smartdate{
+    width:110px;
+    height:auto;
+    background-color: #FFFAE6;
+    padding-top: 9px;
+    border-bottom: 1px solid #FFF5CC;
+    z-index: 111;
+    
+}
+.daynum, .dayname{
+    border-left: 1px solid #FFF5CC;
+}
+.days {
+    border-top: 1px solid #FFF5CC;
+    border-right: 1px solid #FFF5CC;
+}
+.year{
+    display:grid;
+    grid-template-columns: 83px auto;
+    height: 41px;
+    color: #336699;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    border-bottom:1px solid #FFF5CC;
+
+}
+
+.yearlabel {
+    display: grid;
+    place-items: center;
+    text-shadow: 0 1px 1px #ccc, 0 2px 2px #ccc,
+    0 20px 30px rgba(0, 0, 0, 0.5);
+}
+.up{
+    margin-top: 10px;
+}
+.udcontainer{
+    display: grid;
+    height: 30px;
+}
+.updownarrow {
+    cursor:pointer;
+    margin:0;
+    padding:0;
+}
+
+.updownarrow:hover polygon{
+    fill: #336699;
+    /* filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4)); */
+    filter: drop-shadow(1px 10px 10px #181818);
+}
+
+.month{
+
+    height: 100%;
+    cursor: pointer;
+    border-left:1px solid #FFF5CC;
+    border-right:1px solid #FFF5CC;
+    position: relative;
+}
+.monthView{
+    position:absolute;
+    top: -1px;
+    width:110px;
+    height:auto;
+    background-color: #FFFAE6;
+    padding: 8px 18px 1px 18px;
+    border:1px solid #FFF5CC;
+    z-index: -1;
+    left:-1px;
+    transition: .2s ease-out;
+}
+.activelabel {    
+    background: #FFF5CC;
+    text-shadow: 0 1px 1px #ccc, 0 2px 2px #ccc,
+    0 20px 30px rgba(0, 0, 0, 0.5);    
+}
+.monthName{
+    color: #336699;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8333rem;
+    height:20.1px;
+}
+.monthName:hover {
+    color: magenta;
+    text-shadow: 0 1px 1px #ccc, 0 2px 2px #ccc,
+    0 20px 30px rgba(0, 0, 0, 0.5);
+}
+.active_month {
+    color:orange;
+    /* background: #FFF5CC; */
+    /* text-shadow: 0 1px 1px #ccc, 0 2px 2px #ccc,
+    0 20px 30px rgba(0, 0, 0, 0.5); */
+}
+.monthlabel {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8333rem;
+    padding-left: 18px;
+    color: #336699;
+}
+
+.month:hover .monthlabel .monthName{
+
+    text-shadow: 0 1px 1px #ccc, 0 2px 2px #ccc,
+    0 20px 30px rgba(0, 0, 0, 0.5);
+}
+.vmiddle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.days {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8333rem;
+    display:grid;
+    grid-template-columns: 44px auto;
+    height: 20px;
+    color: #336699;
+    cursor: pointer;
+}
+.daynum {
+    padding-left: 18px;
+}
+.dayname {
+    padding-left: 8px;
+}
+
+.fil0 {fill:#666666}
+.updown{
+    display: grid;
+    place-items: center;
+}
+.arrowright {
+    padding-left: 2px;
+}
+.sundaycolor{
+    color:#CC3366;
+}
+
+.days:hover div {
+
+    text-shadow: 0 1px 1px #ccc, 0 2px 2px #ccc,
+    0 20px 30px rgba(0, 0, 0, 0.5);
+}
+.days:hover  {
+    background-color: #FFFDD9;
+}
+
+/* svg */
+.lightlayer {
+    fill:gray;
+    fill-rule:nonzero;
+    fill-opacity:0.701961
+  }
+  .dark1 {
+    fill:rgb(22, 22, 22);
+    fill-rule:nonzero;
+    fill-opacity:0.701961
+  }
+  .dark2 {
+    fill:rgb(22, 22, 22);
+    fill-rule:nonzero;
+    fill-opacity:0.701961
+  }
+  .indicator {
+      shape-rendering:geometricPrecision; 
+      text-rendering:geometricPrecision; 
+      image-rendering:optimizeQuality; 
+      fill-rule:evenodd; 
+      clip-rule:evenodd;
+      cursor:pointer;
+  }
+  
+  .darklayer,.lightlayer, .dark2 {
+    transition: all .5s ease;
+  }
+  
+  .darklayer{
+    transform:translateX(-50%);
+  }
+  .lightlayer{
+    transform:translateX(-34%);
+  }
+  
+  
+  /* .month:hover .darklayer {
+  transform:translateX(0%);
+  }
+  .month:hover .dark2 {
+  opacity:0;
+  }
+  .month:hover .lightlayer {
+    transform:translateX(-15%);
+  } */
+
